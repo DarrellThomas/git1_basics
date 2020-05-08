@@ -1,0 +1,12 @@
+
+
+What worked:
+
+make the repository in github first.
+
+then locally, git init, git add . , git commit -m " ", 
+
+git push --set-upstream git@github.com:DarrellThomas/git1_basics.git master
+
+now git push all day....  
+
