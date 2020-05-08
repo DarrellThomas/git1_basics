@@ -1,0 +1,37 @@
+
+
+
+initially...-----------------------------------------------------------
+
+cmd in the project folder:
+H:\DOCUMENTS\GitHub\git1
+
+git init
+git add .
+git commit - m "note to say INITIAL COMMIT"  				//makes a local repository
+git remote add origin git@github.com:DarrellThomas/NameofProject.get	//opening up the project at github first time only
+git push origin master
+git remote -v								//verify it
+
+
+for each add...--------------------------------------------------------
+
+(make some changes in the project...
+git add .
+git commit - m "comments and notes for the change"  			//changes a local repository
+git push origin master
+(enter passphrase)
+
+
+
+
+
+
+SSH keys.
+using GIT BASH!!!----------------------------------------
+
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+$ eval $(ssh-agent -s)
+$ ssh-add ~/.ssh/id_rsa
+$ clip < ~/.ssh/id_rsa.pub
+now paste into github.
