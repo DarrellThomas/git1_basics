@@ -1,1 +1,57 @@
-GPG verification test
+✅ 1. Generate a GPG Key
+
+gpg --full-generate-key
+
+    Key type: 1 (RSA and RSA)
+
+    Key size: 4096
+
+    Expiration: 2y
+
+    Name/email: use your GitHub email
+
+    Set a strong passphrase
+
+✅ 2. List Your Key (Get the Key ID)
+
+gpg --list-secret-keys --keyid-format LONG
+
+Output example:
+
+sec   rsa4096/ABCD1234EFGH5678 2025-04-15 [SC]
+
+Copy the ABCD1234EFGH5678 (your key ID)
+✅ 3. Export the Public Key and Add to GitHub
+
+gpg --armor --export ABCD1234EFGH5678 > gpg-key.asc
+cat gpg-key.asc
+
+    Go to https://github.com/settings/keys
+
+    Click "New GPG key"
+
+    Paste the key
+
+    Click "Add GPG key"
+
+✅ 4. Tell Git to Sign with This Key
+
+git config --global user.signingkey ABCD1234EFGH5678
+git config --global commit.gpgsign true
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+
+✅ 5. Make a Signed Commit
+
+echo "test" > test.txt
+git add test.txt
+git commit -S -m "Signed commit"
+git push
+
+✅ 6. Verify
+
+    Visit your repo on GitHub
+
+    Go to the commits tab
+
+    You should see: ✔️ Verified
